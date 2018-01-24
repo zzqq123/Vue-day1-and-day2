@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<script>
+ class wrap{
+    constructor(){
+            this.show();
+    }
+    createTit(){
+        let h1 = document.createElement('h1');
+        let span = document.createElement('span');
+        let span2 = document.createElement('span');
+        span2.innerHTML = '信息';
+        span.innerHTML = 'X';
+        span.className = 'Span';
+        h1.className = 'head';
+        h1.append(span2);
+        h1.append(span);
+        return h1;
+    }
+    Addevent(){
+       let Span = document.querySelectorAll('.Span')[0];
+       let btn = document.getElementsByTagName('button')[0];
+       console.log(btn)
+       Span.addEventListener('click',()=>{
+            this.hide();
+       })
+       btn.addEventListener('click',()=>{
+            this.hide();
+       })
+   }
+   CreateBtn(a,b){
+    let btn1 = document.createElement('button');
+    let btn2 = document.createElement('button');
+    let h2 = document.createElement('h2');
+    btn1.innerHTML = a;
+    btn2.innerHTML = b;
+    h2.append(btn1);
+    h2.append(btn2);
+    return h2;
+   }
+    hide(){
+        let wrap = document.querySelector('.shade');
+        wrap.className = 'hide';
+    }
+    show(){
+        let timer = null;
+        timer = setTimeout(()=>{
+            this.Odiv();
+        },3000);
+    }
+    createMain(){
+        let ol = document.createElement('ol');
+        for(let i=0;i<5;i++){
+           let li = document.createElement('li');
+           li.innerHTML = i;
+            ol.append(li);
+        }
+        return ol;
+    }
+    Odiv(){
+        let H1 = this. createTit();
+        let Main = this. createMain();
+        let btn = this.CreateBtn("确认","取消");
+        let div = document.createElement('div');
+        div.className = 'shade';
+        div.append(H1);
+        div.append(Main);
+        div.append(btn);
+        document.body.append(div);
+        this.Addevent();
+    }
+}
+
+let Wrap = new wrap();
+
+
+</script>
+</body>
+</html>

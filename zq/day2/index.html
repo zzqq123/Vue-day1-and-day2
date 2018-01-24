@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>day2</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        .wrap{
+            width: 400px;
+            height:550px;
+            margin:0 auto;
+        }
+        ul{
+            width: 400px;
+            height: 50px;
+            margin:10px;
+        }
+        ul li{
+            background:skyblue;
+            float: left;
+            width: 90px;
+            margin-left:5px;
+            height:50px;
+            text-align:center;
+            line-height:50px;
+            color:#fff;
+        }
+        ol{
+            width: 300px;
+            height: 300px;
+            margin:10px auto;
+            border:1px solid #ccc;
+            background:rgba(1,2,3,.4);
+            position:relative;
+        }
+        ol li{
+            width: 300px;
+            height:300px;
+            text-align:center;
+            line-height:300px;
+            color:#fff;
+            display:none;
+            position:absolute;
+        }
+        .hide{
+            display:none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+</div>
+<script>
+    class tab{
+        constructor(){
+            this.tab();
+        }
+        tab(){
+            let ul = document.getElementsByTagName('ul')[0];
+            let uls = ul.getElementsByTagName('li');
+            let ol = document.getElementsByTagName('ol')[0];
+            let ols = ol.getElementsByTagName('li');
+            let ulis = [...uls];
+            ulis.forEach((v,i)=>{
+                ulis[i].onclick = ()=>{
+                [...ols].forEach((val,ind)=>{
+                    ols[ind].className = 'hide';
+                    if(ind === i){
+                      ols[ind].className = 'show'
+                    }
+                })
+                }
+            })
+        }
+    }
+  let Tab = new tab();
+</script>
+</body>
+</html>
